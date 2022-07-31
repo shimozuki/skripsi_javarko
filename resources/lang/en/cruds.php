@@ -192,8 +192,8 @@ return [
         ],
     ],
     'project'                 => [
-        'title'          => 'Projects',
-        'title_singular' => 'Project',
+        'title'          => 'Team',
+        'title_singular' => 'Team',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',

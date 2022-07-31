@@ -2,8 +2,8 @@
 
 Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
-Auth::routes(['register' => false]);
-
+Auth::routes(['register' => True]);
+// Route::post('register', 'Auth\AuthController@register');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions

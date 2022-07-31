@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Sistem Informasi PT. Javarco Sumbawa',
+    'site_title' => 'PT. Javarco Sumbawa',
 ];
