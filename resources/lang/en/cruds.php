@@ -124,7 +124,7 @@ return [
         ],
     ],
     'clientStatus'            => [
-        'title'          => 'Client statuses',
+        'title'          => 'Agen statuses',
         'title_singular' => 'Client status',
         'fields'         => [
             'id'                => 'ID',
@@ -156,11 +156,11 @@ return [
         ],
     ],
     'clientManagement'        => [
-        'title'          => 'Client management',
+        'title'          => 'Agen management',
         'title_singular' => 'Client management',
     ],
     'client'                  => [
-        'title'          => 'Clients',
+        'title'          => 'Agen',
         'title_singular' => 'Client',
         'fields'         => [
             'id'                => 'ID',
