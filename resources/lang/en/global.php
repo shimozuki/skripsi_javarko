@@ -2,7 +2,7 @@
 
 return [
     'actions'                              => 'Actions',
-    'add'                                  => 'Add',
+    'add'                                  => 'Input',
     'allRightsReserved'                    => 'All rights reserved.',
     'areYouSure'                           => 'Are you sure?',
     'clickHereToVerify'                    => 'Click here to verify',
