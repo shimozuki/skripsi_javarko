@@ -107,7 +107,7 @@ return [
     ],
     'incomeSource'            => [
         'title'          => 'Nama Agen',
-        'title_singular' => 'Nama Agen',
+        'title_singular' => 'Income source',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
@@ -267,7 +267,7 @@ return [
             'project_helper'          => '',
             'transaction_type'        => 'Transaction Type',
             'transaction_type_helper' => '',
-            'income_source'           => 'Income Source',
+            'income_source'           => 'Nama Agen',
             'income_source_helper'    => '',
             'amount'                  => 'Amount',
             'amount_helper'           => '',
