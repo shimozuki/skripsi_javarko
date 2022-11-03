@@ -106,7 +106,7 @@ return [
         ],
     ],
     'incomeSource'            => [
-        'title'          => 'Income sources',
+        'title'          => 'Nama Agen',
         'title_singular' => 'Income source',
         'fields'         => [
             'id'                 => 'ID',
