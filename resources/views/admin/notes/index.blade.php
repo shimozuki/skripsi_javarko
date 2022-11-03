@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.note')
 @section('content')
 @can('note_create')
     <div style="margin-bottom: 10px;" class="row">
