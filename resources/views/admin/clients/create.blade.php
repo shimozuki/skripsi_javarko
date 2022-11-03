@@ -69,7 +69,7 @@
                     {{ trans('cruds.client.fields.phone_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
+            <!-- <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
                 <label for="website">{{ trans('cruds.client.fields.website') }}</label>
                 <input type="text" id="website" name="website" class="form-control" value="{{ old('website', isset($client) ? $client->website : '') }}">
                 @if($errors->has('website'))
@@ -80,8 +80,8 @@
                 <p class="helper-block">
                     {{ trans('cruds.client.fields.website_helper') }}
                 </p>
-            </div>
-            <div class="form-group {{ $errors->has('skype') ? 'has-error' : '' }}">
+            </div> -->
+            <!-- <div class="form-group {{ $errors->has('skype') ? 'has-error' : '' }}">
                 <label for="skype">{{ trans('cruds.client.fields.skype') }}</label>
                 <input type="text" id="skype" name="skype" class="form-control" value="{{ old('skype', isset($client) ? $client->skype : '') }}">
                 @if($errors->has('skype'))
@@ -92,8 +92,8 @@
                 <p class="helper-block">
                     {{ trans('cruds.client.fields.skype_helper') }}
                 </p>
-            </div>
-            <div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
+            </div> -->
+            <!-- <div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
                 <label for="country">{{ trans('cruds.client.fields.country') }}</label>
                 <input type="text" id="country" name="country" class="form-control" value="{{ old('country', isset($client) ? $client->country : '') }}">
                 @if($errors->has('country'))
@@ -104,7 +104,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.client.fields.country_helper') }}
                 </p>
-            </div>
+            </div> -->
             <div class="form-group {{ $errors->has('status_id') ? 'has-error' : '' }}">
                 <label for="status">{{ trans('cruds.client.fields.status') }}</label>
                 <select name="status_id" id="status" class="form-control select2">

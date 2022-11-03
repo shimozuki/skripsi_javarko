@@ -107,7 +107,7 @@ return [
     ],
     'incomeSource'            => [
         'title'          => 'Nama Agen',
-        'title_singular' => 'Income source',
+        'title_singular' => 'Nama Agen',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
@@ -175,11 +175,11 @@ return [
             'email_helper'      => '',
             'phone'             => 'Phone',
             'phone_helper'      => '',
-            'website'           => 'Website',
+            // 'website'           => 'Website',
             'website_helper'    => '',
-            'skype'             => 'Skype',
+            // 'skype'             => 'Skype',
             'skype_helper'      => '',
-            'country'           => 'Country',
+            // 'country'           => 'Country',
             'country_helper'    => '',
             'status'            => 'Client Status',
             'status_helper'     => '',
