@@ -21,11 +21,11 @@ class CreateClientsTable extends Migration
 
             $table->string('phone')->nullable();
 
-            $table->string('website')->nullable();
+            $table->string('website');
 
-            $table->string('skype')->nullable();
+            $table->string('skype');
 
-            $table->string('country')->nullable();
+            $table->string('country');
 
             $table->timestamps();
 

@@ -34,18 +34,18 @@
                         <th>
                             {{ trans('cruds.client.fields.company') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.client.fields.email') }}
-                        </th>
+                        </th> -->
                         <th>
                             {{ trans('cruds.client.fields.phone') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.client.fields.website') }}
-                        </th>
-                        <th>
+                        </th> -->
+                        <!-- <th>
                             {{ trans('cruds.client.fields.skype') }}
-                        </th>
+                        </th> -->
                         <th>
                             {{ trans('cruds.client.fields.country') }}
                         </th>
@@ -75,18 +75,18 @@
                             <td>
                                 {{ $client->company ?? '' }}
                             </td>
-                            <td>
+                            <!-- <td>
                                 {{ $client->email ?? '' }}
-                            </td>
+                            </td> -->
                             <td>
                                 {{ $client->phone ?? '' }}
                             </td>
-                            <td>
+                            <!-- <td>
                                 {{ $client->website ?? '' }}
-                            </td>
-                            <td>
+                            </td> -->
+                            <!-- <td>
                                 {{ $client->skype ?? '' }}
-                            </td>
+                            </td> -->
                             <td>
                                 {{ $client->country ?? '' }}
                             </td>

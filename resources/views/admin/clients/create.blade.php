@@ -45,7 +45,7 @@
                     {{ trans('cruds.client.fields.company_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+            <!-- <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="email">{{ trans('cruds.client.fields.email') }}</label>
                 <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($client) ? $client->email : '') }}">
                 @if($errors->has('email'))
@@ -56,7 +56,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.client.fields.email_helper') }}
                 </p>
-            </div>
+            </div> -->
             <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
                 <label for="phone">{{ trans('cruds.client.fields.phone') }}</label>
                 <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone', isset($client) ? $client->phone : '') }}">
@@ -93,7 +93,7 @@
                     {{ trans('cruds.client.fields.skype_helper') }}
                 </p>
             </div> -->
-            <!-- <div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
                 <label for="country">{{ trans('cruds.client.fields.country') }}</label>
                 <input type="text" id="country" name="country" class="form-control" value="{{ old('country', isset($client) ? $client->country : '') }}">
                 @if($errors->has('country'))
@@ -104,7 +104,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.client.fields.country_helper') }}
                 </p>
-            </div> -->
+            </div>
             <div class="form-group {{ $errors->has('status_id') ? 'has-error' : '' }}">
                 <label for="status">{{ trans('cruds.client.fields.status') }}</label>
                 <select name="status_id" id="status" class="form-control select2">
