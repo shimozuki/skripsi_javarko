@@ -161,7 +161,7 @@ return [
     ],
     'client'                  => [
         'title'          => 'Agen',
-        'title_singular' => 'Client',
+        'title_singular' => 'Agen',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
@@ -181,7 +181,7 @@ return [
             'skype_helper'      => '',
             'country'           => 'Wilayah',
             'country_helper'    => '',
-            'status'            => 'Client Status',
+            'status'            => 'Agen Status',
             'status_helper'     => '',
             'created_at'        => 'Created at',
             'created_at_helper' => '',
