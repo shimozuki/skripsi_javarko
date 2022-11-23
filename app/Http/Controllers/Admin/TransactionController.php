@@ -36,10 +36,12 @@ class TransactionController extends Controller
 
         $income_sources = IncomeSource::all()->pluck('fee_percent', 'id')->prepend(trans('global.pleaseSelect'), '');
         $income_sources1 = IncomeSource::all();
-
+        foreach ($income_sources1 as $key => $value) {
+            $qty = $value->fee_percent;
+        }
         $currencies = Currency::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies'));
+        return view('admin.transactions.create', compact('qty', 'projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies'));
     }
 
     public function store(StoreTransactionRequest $request)

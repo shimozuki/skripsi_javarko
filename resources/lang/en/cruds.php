@@ -271,7 +271,7 @@ return [
             'income_source_helper'    => '',
             'amount'                  => 'harga',
             'amount_helper'           => '',
-            'currency'                => 'Mata Uang',
+            'currency'                => 'Jenis Pembayaran',
             'currency_helper'         => '',
             'transaction_date'        => 'Tanggal',
             'transaction_date_helper' => '',
