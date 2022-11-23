@@ -40,9 +40,9 @@
                         <th>
                             {{ trans('cruds.client.fields.phone') }}
                         </th>
-                        <!-- <th>
+                        <th>
                             {{ trans('cruds.client.fields.website') }}
-                        </th> -->
+                        </th>
                         <!-- <th>
                             {{ trans('cruds.client.fields.skype') }}
                         </th> -->
@@ -81,9 +81,9 @@
                             <td>
                                 {{ $client->phone ?? '' }}
                             </td>
-                            <!-- <td>
-                                {{ $client->website ?? '' }}
-                            </td> -->
+                            <td>
+                                {{ $client->project->name ?? '' }}
+                            </td>
                             <!-- <td>
                                 {{ $client->skype ?? '' }}
                             </td> -->

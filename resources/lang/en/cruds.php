@@ -175,7 +175,7 @@ return [
             'email_helper'      => '',
             'phone'             => 'Phone',
             'phone_helper'      => '',
-            // 'website'           => 'Website',
+            'website'           => 'Team',
             'website_helper'    => '',
             // 'skype'             => 'Skype',
             'skype_helper'      => '',

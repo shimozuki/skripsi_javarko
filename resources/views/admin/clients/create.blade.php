@@ -105,6 +105,19 @@
                     {{ trans('cruds.client.fields.country_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
+                <label for="website">{{ trans('cruds.client.fields.website') }}</label>
+                <select name="website" id="website" class="form-control select2">
+                    @foreach($project as $id => $website)
+                        <option value="{{ $id }}"  {{ (isset($client) && $client->website ? $client->website->id : old('website')) == $website ? 'selected' : '' }}>{{ $website }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('status_id'))
+                    <p class="help-block">
+                        {{ $errors->first('status_id') }}
+                    </p>
+                @endif
+            </div>
             <div class="form-group {{ $errors->has('status_id') ? 'has-error' : '' }}">
                 <label for="status">{{ trans('cruds.client.fields.status') }}</label>
                 <select name="status_id" id="status" class="form-control select2">

@@ -28,9 +28,9 @@
                         <th>
                             {{ trans('cruds.project.fields.name') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.project.fields.client') }}
-                        </th>
+                        </th> -->
                         <th>
                             {{ trans('cruds.project.fields.description') }}
                         </th>
@@ -60,9 +60,9 @@
                             <td>
                                 {{ $project->name ?? '' }}
                             </td>
-                            <td>
+                            <!-- <td>
                                 {{ $project->client->first_name ?? '' }}
-                            </td>
+                            </td> -->
                             <td>
                                 {{ $project->description ?? '' }}
                             </td>

@@ -38,24 +38,25 @@
             </div>
             <div class="form-group {{ $errors->has('income_source_id') ? 'has-error' : '' }}">
                 <label for="income_source">{{ trans('cruds.transaction.fields.income_source') }}*</label>
-                <select name="income_source_id" id="income_source" class="form-control select2" required>
-                    @foreach($income_sources as $id => $income_source)
-                        <option value="{{ $id }}" {{ (isset($transaction) && $transaction->income_source ? $transaction->income_source->id : old('income_source_id')) == $id ? 'selected' : '' }}>{{ $income_source }}</option>
+                <select name="income_source_id" id="qty" class="form-control select2" required>
+                    <option value="">Please select</option>
+                    @foreach($income_sources1 as $id => $income_source)
+                    <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}" {{ (isset($transaction) && $transaction->income_source ? $transaction->income_source->id : old('income_source_id')) == $income_source->id ? 'selected' : '' }}>{{ $income_source->fee_percent }} tabung - {{$income_source->name}}</option>
                     @endforeach
                 </select>
                 @if($errors->has('income_source_id'))
-                    <p class="help-block">
-                        {{ $errors->first('income_source_id') }}
-                    </p>
+                <p class="help-block">
+                    {{ $errors->first('income_source_id') }}
+                </p>
                 @endif
             </div>
             <div class="form-group {{ $errors->has('amount') ? 'has-error' : '' }}">
                 <label for="amount">{{ trans('cruds.transaction.fields.amount') }}*</label>
-                <input type="number" id="amount" name="amount" class="form-control" value="{{ old('amount', isset($transaction) ? $transaction->amount : '') }}" step="0.01" required>
+                <input type="number" id="total" name="amount" class="form-control" value="{{ old('amount', isset($transaction) ? $transaction->amount : '') }}" readonly>
                 @if($errors->has('amount'))
-                    <p class="help-block">
-                        {{ $errors->first('amount') }}
-                    </p>
+                <p class="help-block">
+                    {{ $errors->first('amount') }}
+                </p>
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.transaction.fields.amount_helper') }}
@@ -118,4 +119,17 @@
 
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+$('#qty').on('change', function(){
+
+  const qty= $('#qty option:selected').data('price');
+  
+  const totalDiscount = (qty * 23000)
+  
+  $('[name=amount]').val(totalDiscount);
+
+});
+</script>
 @endsection

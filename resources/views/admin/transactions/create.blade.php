@@ -76,7 +76,7 @@
             </div>
             <div class="form-group {{ $errors->has('transaction_date') ? 'has-error' : '' }}">
                 <label for="transaction_date">{{ trans('cruds.transaction.fields.transaction_date') }}*</label>
-                <input type="text" id="transaction_date" name="transaction_date" class="form-control date" value="{{ old('transaction_date', isset($transaction) ? $transaction->transaction_date : '') }}" required>
+                <input type="text" id="transaction_date" name="transaction_date" class="form-control date" value="{{ date('Y-m-d') }}" readonly>
                 @if($errors->has('transaction_date'))
                 <p class="help-block">
                     {{ $errors->first('transaction_date') }}
@@ -86,7 +86,7 @@
                     {{ trans('cruds.transaction.fields.transaction_date_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+            <!-- <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.transaction.fields.name') }}</label>
                 <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($transaction) ? $transaction->name : '') }}">
                 @if($errors->has('name'))
@@ -97,7 +97,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.transaction.fields.name_helper') }}
                 </p>
-            </div>
+            </div> -->
             <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
                 <label for="description">{{ trans('cruds.transaction.fields.description') }}</label>
                 <textarea id="description" name="description" class="form-control ">{{ old('description', isset($transaction) ? $transaction->description : '') }}</textarea>

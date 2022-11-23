@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Client;
 use App\ClientStatus;
+use App\Project;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyClientRequest;
 use App\Http\Requests\StoreClientRequest;
@@ -28,8 +29,8 @@ class ClientController extends Controller
         abort_if(Gate::denies('client_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $statuses = ClientStatus::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        return view('admin.clients.create', compact('statuses'));
+        $project = Project::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        return view('admin.clients.create', compact('statuses', 'project'));
     }
 
     public function store(StoreClientRequest $request)
@@ -44,10 +45,10 @@ class ClientController extends Controller
         abort_if(Gate::denies('client_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $statuses = ClientStatus::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
+        $project = Project::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
         $client->load('status');
-
-        return view('admin.clients.edit', compact('statuses', 'client'));
+        $client->load('project');
+        return view('admin.clients.edit', compact('statuses', 'client', 'project'));
     }
 
     public function update(UpdateClientRequest $request, Client $client)

@@ -41,14 +41,14 @@ class Project extends Model
         return $this->hasMany(Document::class, 'project_id', 'id');
     }
 
+    public function clients()
+    {
+        return $this->hasMany(Client::class, 'website', 'id');
+    }
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class, 'project_id', 'id');
-    }
-
-    public function client()
-    {
-        return $this->belongsTo(Client::class, 'client_id');
     }
 
     public function getStartDateAttribute($value)

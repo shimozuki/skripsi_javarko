@@ -42,10 +42,10 @@
                         @foreach($info as $currency => $row)
                             <tr>
                                 <td>{{ $date }}</td>
-                                <td>{{ number_format($row['income'],2) }} {{ $currency }}</td>
-                                <td>{{ number_format($row['expenses'],2) }} {{ $currency }}</td>
-                                <td>{{ number_format($row['fees'],2) }} {{ $currency }}</td>
-                                <td>{{ number_format($row['total'],2) }} {{ $currency }}</td>
+                                <td> @currency($row['income']) {{ $currency }}</td>
+                                <td> {{ number_format($row['expenses'],2) }} {{ $currency }}</td>
+                                <td> @currency($row['fees'] ) {{ $currency }}</td>
+                                <td> @currency($row['total']) {{ $currency }}</td>
                             </tr>
                             <?php $date = ''; ?>
                         @endforeach

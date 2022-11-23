@@ -47,7 +47,7 @@
                             {{ trans('cruds.transaction.fields.amount') }}
                         </th>
                         <td>
-                            ${{ $transaction->amount }}
+                            @currency($transaction->amount)
                         </td>
                     </tr>
                     <tr>

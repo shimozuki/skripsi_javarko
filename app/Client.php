@@ -32,13 +32,13 @@ class Client extends Model
         'deleted_at',
     ];
 
-    public function projects()
-    {
-        return $this->hasMany(Project::class, 'client_id', 'id');
-    }
-
     public function status()
     {
         return $this->belongsTo(ClientStatus::class, 'status_id');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'website_id');
     }
 }

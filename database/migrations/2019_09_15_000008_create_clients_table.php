@@ -23,7 +23,7 @@ class CreateClientsTable extends Migration
 
             $table->string('website');
 
-            $table->string('skype');
+            $table->increments('skype');
 
             $table->string('country');
 
