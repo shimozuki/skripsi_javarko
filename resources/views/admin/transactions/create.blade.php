@@ -38,8 +38,9 @@
             <div class="form-group {{ $errors->has('income_source_id') ? 'has-error' : '' }}">
                 <label for="income_source">{{ trans('cruds.transaction.fields.income_source') }}*</label>
                 <select name="income_source_id" id="income_source" class="form-control select2" required>
-                    @foreach($income_sources as $id => $income_source)
-                        <option value="{{ $id }}" {{ (isset($transaction) && $transaction->income_source ? $transaction->income_source->id : old('income_source_id')) == $id ? 'selected' : '' }}>{{ $income_source }}</option>
+                <option value="">Please select</option>    
+                @foreach($income_sources1 as $id => $income_source)
+                        <option value="{{ $id }}" {{ (isset($transaction) && $transaction->income_source ? $transaction->income_source->id : old('income_source_id')) == $id ? 'selected' : '' }}>{{ $income_source->fee_percent }} tabung - {{$income_source->name}}</option>
                     @endforeach
                 </select>
                 @if($errors->has('income_source_id'))

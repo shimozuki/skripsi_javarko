@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyIncomeSourceRequest;
 use App\Http\Requests\StoreIncomeSourceRequest;
 use App\Http\Requests\UpdateIncomeSourceRequest;
 use App\IncomeSource;
+use App\Client;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,8 +26,8 @@ class IncomeSourceController extends Controller
     public function create()
     {
         abort_if(Gate::denies('income_source_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('admin.incomeSources.create');
+        $client = Client::all();
+        return view('admin.incomeSources.create', compact('client'));
     }
 
     public function store(StoreIncomeSourceRequest $request)
