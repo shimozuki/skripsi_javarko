@@ -82,7 +82,7 @@
                                 {{ $client->phone ?? '' }}
                             </td>
                             <td>
-                                {{ $client->project->name ?? '' }}
+                                {{ $client->Project->name ?? '' }}
                             </td>
                             <!-- <td>
                                 {{ $client->skype ?? '' }}

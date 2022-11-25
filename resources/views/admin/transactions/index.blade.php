@@ -19,14 +19,14 @@
             <table class=" table table-bordered table-striped table-hover datatable datatable-Transaction">
                 <thead>
                     <tr>
-                        <th width="10">
-
-                        </th>
                         <th>
                             {{ trans('cruds.transaction.fields.id') }}
                         </th>
                         <th>
                             {{ trans('cruds.transaction.fields.project') }}
+                        </th>
+                        <th>
+                            Nama PT
                         </th>
                         <th>
                             {{ trans('cruds.transaction.fields.transaction_type') }}
@@ -58,19 +58,19 @@
                     @foreach($transactions as $key => $transaction)
                     <tr data-entry-id="{{ $transaction->id }}">
                         <td>
-
-                        </td>
-                        <td>
                             {{ $transaction->id ?? '' }}
                         </td>
                         <td>
                             {{ $transaction->project->name ?? '' }}
                         </td>
                         <td>
+                            {{ $transaction->income_source->name ?? '' }}
+                        </td>
+                        <td>
                             {{ $transaction->transaction_type->name ?? '' }}
                         </td>
                         <td>
-                            {{ $transaction->income_source->name ?? '' }}
+                            {{ $transaction->income_source->fee_percent ?? '' }} tabung
                         </td>
                         <td>
                             @currency($transaction->amount)
