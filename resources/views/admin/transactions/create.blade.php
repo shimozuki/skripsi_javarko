@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admint')
 @section('content')
 
 <div class="card">
@@ -123,7 +123,7 @@ $('#qty').on('change', function(){
 
   const qty= $('#qty option:selected').data('price');
   
-  const totalDiscount = (qty * 23000)
+  const totalDiscount = (qty * 23000);
   
   $('[name=amount]').val(totalDiscount);
 
