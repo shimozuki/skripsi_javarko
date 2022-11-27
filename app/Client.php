@@ -22,7 +22,7 @@ class Client extends Model
         'phone',
         'skype',
         'company',
-        'website',
+        'website_id',
         'country',
         'last_name',
         'status_id',

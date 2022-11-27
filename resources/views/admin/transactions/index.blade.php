@@ -43,9 +43,9 @@
                         <th>
                             {{ trans('cruds.transaction.fields.transaction_date') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.transaction.fields.name') }}
-                        </th>
+                        </th> -->
                         <th>
                             {{ trans('cruds.transaction.fields.description') }}
                         </th>
@@ -81,9 +81,9 @@
                         <td>
                             {{ $transaction->transaction_date ?? '' }}
                         </td>
-                        <td>
+                        <!-- <td>
                             {{ $transaction->name ?? '' }}
-                        </td>
+                        </td> -->
                         <td>
                             {{ $transaction->description ?? '' }}
                         </td>

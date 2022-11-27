@@ -107,7 +107,7 @@
             </div>
             <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
                 <label for="website">{{ trans('cruds.client.fields.website') }}</label>
-                <select name="website" id="website" class="form-control select2">
+                <select name="website_id" id="website" class="form-control select2">
                     @foreach($project as $id => $website)
                         <option value="{{ $id }}"  {{ (isset($client) && $client->website ? $client->website->id : old('website')) == $website ? 'selected' : '' }}>{{ $website }}</option>
                     @endforeach
