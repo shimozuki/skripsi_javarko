@@ -74,6 +74,29 @@
                 </p>
                 @endif
             </div>
+            <div class="form-group {{ $errors->has('currency_id') ? 'has-error' : '' }}">
+                <label for="currency">{{ trans('cruds.transaction.fields.currency') }}*</label>
+                <select name="currency_id" id="currency" class="form-control select2" id="pembayaran" required>
+                    @foreach($currencies as $id => $currency)
+                    <option value="{{ $id }}" {{ (isset($transaction) && $transaction->currency ? $transaction->currency->id : old('currency_id')) == $id ? 'selected' : '' }}>{{ $currency }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('currency_id'))
+                <p class="help-block">
+                    {{ $errors->first('currency_id') }}
+                </p>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('currency_id') ? 'has-error' : '' }}">
+                <label for="currency" id="text">Bukti Transfer*</label>
+                <br>
+                <input type="file" name="bukti_tf" id="upload">
+                @if($errors->has('bukti_tf'))
+                <p class="help-block">
+                    {{ $errors->first('bukti_tf') }}
+                </p>
+                @endif
+            </div>
             <div class="form-group {{ $errors->has('transaction_date') ? 'has-error' : '' }}">
                 <label for="transaction_date">{{ trans('cruds.transaction.fields.transaction_date') }}*</label>
                 <input type="text" id="transaction_date" name="transaction_date" class="form-control date" value="{{ date('Y-m-d') }}" readonly>
@@ -118,15 +141,26 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
+    $('#upload').hide();
+    $('#text').hide();
+    output = document.querySelector('pembayaran').value;
+    if (output == 6) {
+        $('#upload').show();
+    } else {
+        $('#upload').hide();
+    }
+</script>
+<script>
+    $('#qty').on('change', function() {
+        $('#upload').hide();
+        $('#text').hide();
 
-$('#qty').on('change', function(){
+        const qty = $('#qty option:selected').data('price');
 
-  const qty= $('#qty option:selected').data('price');
-  
-  const totalDiscount = (qty * 23000);
-  
-  $('[name=amount]').val(totalDiscount);
+        const totalDiscount = (qty * 23000);
 
-});
+        $('[name=amount]').val(totalDiscount);
+
+    });
 </script>
 @endsection

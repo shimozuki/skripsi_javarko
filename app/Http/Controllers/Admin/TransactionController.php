@@ -43,9 +43,12 @@ class TransactionController extends Controller
 
     public function store(StoreTransactionRequest $request)
     {
-        $transaction = Transaction::create($request->all());
-
-        return redirect()->route('admin.transactions.index');
+        if ($request->hasfile('bukti_tf')) {
+            $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->file('bukti_tf')->getClientOriginalName());
+            $request->file('bukti_tf')->move('storage/bukti_tf', $filename);
+            $transaction = Transaction::create($request->all());
+            return redirect()->route('admin.transactions.index');
+        }
     }
 
     public function edit(Transaction $transaction)

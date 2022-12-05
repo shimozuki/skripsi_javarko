@@ -31,6 +31,7 @@ class Transaction extends Model
         'income_source_id',
         'transaction_date',
         'transaction_type_id',
+        'bukti_tf',
     ];
 
     public function project()
