@@ -63,20 +63,7 @@
             </div>
             <div class="form-group {{ $errors->has('currency_id') ? 'has-error' : '' }}">
                 <label for="currency">{{ trans('cruds.transaction.fields.currency') }}*</label>
-                <select name="currency_id" id="currency" class="form-control select2" required>
-                    @foreach($currencies as $id => $currency)
-                    <option value="{{ $id }}" {{ (isset($transaction) && $transaction->currency ? $transaction->currency->id : old('currency_id')) == $id ? 'selected' : '' }}>{{ $currency }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('currency_id'))
-                <p class="help-block">
-                    {{ $errors->first('currency_id') }}
-                </p>
-                @endif
-            </div>
-            <div class="form-group {{ $errors->has('currency_id') ? 'has-error' : '' }}">
-                <label for="currency">{{ trans('cruds.transaction.fields.currency') }}*</label>
-                <select name="currency_id" id="currency" class="form-control select2" id="pembayaran" required>
+                <select name="currency_id" id="currency" class="form-control select2" onchange="yesnoCheck(this);" required>
                     @foreach($currencies as $id => $currency)
                     <option value="{{ $id }}" {{ (isset($transaction) && $transaction->currency ? $transaction->currency->id : old('currency_id')) == $id ? 'selected' : '' }}>{{ $currency }}</option>
                     @endforeach
@@ -143,12 +130,25 @@
 <script>
     $('#upload').hide();
     $('#text').hide();
-    output = document.querySelector('pembayaran').value;
-    if (output == 6) {
-        $('#upload').show();
-    } else {
-        $('#upload').hide();
+
+    function yesnoCheck(that) {
+        if (that.value == 2) {
+            $('#upload').show();
+            $('#text').show();
+        } else {
+            $('#upload').hide();
+            $('#text').hide();
+        }
     }
+    // $('#upload').hide();
+    // $('#text').hide();
+    // output = document.querySelector('currency').value;
+    // console.log(output);
+    // if (output == 6) {
+    //     $('#upload').show();
+    // } else {
+    //     $('#upload').hide();
+    // }
 </script>
 <script>
     $('#qty').on('change', function() {
