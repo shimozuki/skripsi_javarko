@@ -82,6 +82,14 @@
                             {!! $transaction->description !!}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.transaction.fields.bukti_tf') }}
+                        </th>
+                        <td>
+                            <img src="{{url('storage/bukti_tf/'.$transaction->bukti_tf)}}" alt="">
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

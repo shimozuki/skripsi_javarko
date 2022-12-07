@@ -77,7 +77,7 @@
             <div class="form-group {{ $errors->has('currency_id') ? 'has-error' : '' }}">
                 <label for="currency" id="text">Bukti Transfer*</label>
                 <br>
-                <input type="file" name="bukti_tf" id="upload">
+                <input type="file" name="bukti_tf" id="upload"  multiple />
                 @if($errors->has('bukti_tf'))
                 <p class="help-block">
                     {{ $errors->first('bukti_tf') }}
@@ -96,9 +96,13 @@
                     {{ trans('cruds.transaction.fields.transaction_date_helper') }}
                 </p>
             </div>
-            <!-- <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.transaction.fields.name') }}</label>
-                <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($transaction) ? $transaction->name : '') }}">
+                <select name="name" id="name" class="form-control select2" required>
+                    @foreach($name as $id => $row)
+                    <option value="{{ $id }}">{{ $id }} ({{ $row }})</option>
+                    @endforeach
+                </select>
                 @if($errors->has('name'))
                 <p class="help-block">
                     {{ $errors->first('name') }}
@@ -107,7 +111,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.transaction.fields.name_helper') }}
                 </p>
-            </div> -->
+            </div>
             <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
                 <label for="description">{{ trans('cruds.transaction.fields.description') }}</label>
                 <textarea id="description" name="description" class="form-control ">{{ old('description', isset($transaction) ? $transaction->description : '') }}</textarea>
@@ -157,7 +161,7 @@
 
         const qty = $('#qty option:selected').data('price');
 
-        const totalDiscount = (qty * 23000);
+        const totalDiscount = (qty * 15000);
 
         $('[name=amount]').val(totalDiscount);
 

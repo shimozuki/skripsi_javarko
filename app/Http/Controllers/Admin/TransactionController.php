@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Client;
 use App\Currency;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyTransactionRequest;
@@ -14,6 +15,7 @@ use App\TransactionType;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File;
 
 class TransactionController extends Controller
 {
@@ -36,19 +38,19 @@ class TransactionController extends Controller
 
         $income_sources = IncomeSource::all()->pluck('fee_percent', 'id')->prepend(trans('global.pleaseSelect'), '');
         $income_sources1 = IncomeSource::all();
+        $name = Client::pluck('company','country')->prepend(trans('global.pleaseSelect'), '');
         $currencies = Currency::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies'));
+        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies', 'name'));
     }
 
     public function store(StoreTransactionRequest $request)
     {
-        if ($request->hasfile('bukti_tf')) {
-            $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->file('bukti_tf')->getClientOriginalName());
-            $request->file('bukti_tf')->move('storage/bukti_tf', $filename);
-            $transaction = Transaction::create($request->all());
+            $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->bukti_tf->extension());
+            $transaction = Transaction::create(['bukti_tf' => $filename, 'amount' => $request->amount, 'transaction_date' => $request->transaction_date, 'name' => $request->name, 'description' => $request->description,
+                'project_id' => $request->project_id, 'transaction_type_id' => $request->transaction_type_id, 'income_source_id' => $request->income_source_id, 'currency_id' => $request->currency_id]);
+            $request->bukti_tf->move('storage/bukti_tf', $filename);
             return redirect()->route('admin.transactions.index');
-        }
     }
 
     public function edit(Transaction $transaction)
