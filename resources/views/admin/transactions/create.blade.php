@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.transaction.title_singular') }}
+        {{ trans('global.create') }} {{ trans('cruds.transaction.title_singular') }} Rp. 15.000/tabung
     </div>
 
     <div class="card-body">
