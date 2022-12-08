@@ -267,7 +267,7 @@ return [
             'project_helper'          => '',
             'transaction_type'        => 'Jenis Transaksi',
             'transaction_type_helper' => '',
-            'income_source'           => 'Agen',
+            'income_source'           => 'Jumlah Tabung',
             'income_source_helper'    => '',
             // 'agent'                   => 'Client',
             // 'agen_helper'             => '',
