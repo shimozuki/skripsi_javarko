@@ -43,6 +43,9 @@
                     <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}">{{ $income_source->fee_percent }} tabung - {{$income_source->name}}</option>
                     @endforeach
                 </select>
+                <br>
+                <label for="income_source" id="label_tabung"></label>
+                <input type="text" id="tabung" name="tabung" class="form-control" readonly>
                 @if($errors->has('income_source_id'))
                 <p class="help-block">
                     {{ $errors->first('income_source_id') }}
@@ -155,14 +158,14 @@
     // }
 </script>
 <script>
+    document.getElementById("label_tabung").innerText = "Jumlah Tabung";
     $('#qty').on('change', function() {
         $('#upload').hide();
         $('#text').hide();
 
         const qty = $('#qty option:selected').data('price');
-
         const totalDiscount = (qty * 15000);
-
+        $('[name=tabung').val(qty + ' Tabung');
         $('[name=amount]').val(totalDiscount);
 
     });
