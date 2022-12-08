@@ -36,11 +36,11 @@
                 @endif
             </div>
             <div class="form-group {{ $errors->has('income_source_id') ? 'has-error' : '' }}">
-                <label for="income_source">{{ trans('cruds.transaction.fields.income_source') }}*</label>
+                <label for="income_source" id="agen"></label>
                 <select name="income_source_id" id="qty" class="form-control select2" required>
                     <option value="">Please select</option>
                     @foreach($income_sources1 as $id => $income_source)
-                    <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}">{{ $income_source->fee_percent }} tabung - {{$income_source->name}}</option>
+                    <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}">{{$income_source->name}}</option>
                     @endforeach
                 </select>
                 <br>
@@ -158,7 +158,8 @@
     // }
 </script>
 <script>
-    document.getElementById("label_tabung").innerText = "Jumlah Tabung";
+    document.getElementById("label_tabung").innerText = "Jumlah Tabung*";
+    document.getElementById("agen").innerText = "Agen*";
     $('#qty').on('change', function() {
         $('#upload').hide();
         $('#text').hide();
