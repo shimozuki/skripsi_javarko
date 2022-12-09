@@ -22,6 +22,18 @@
                     {{ trans('cruds.incomeSource.fields.name_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('penganteran') ? 'has-error' : '' }}">
+                <label for="penganteran">Penganteran/minggu*</label>
+                <input type="text" id="name" name="penganteran" class="form-control" value="{{ old('penganteran', isset($incomeSource) ? $incomeSource->penganteran : '') }}" required>
+                @if($errors->has('penganteran'))
+                <p class="help-block">
+                    {{ $errors->first('penganteran') }}
+                </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.incomeSource.fields.name_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('fee_percent') ? 'has-error' : '' }}">
                 <label for="fee_percent">{{ trans('cruds.incomeSource.fields.fee_percent') }}</label>
                 <input type="number" id="fee_percent" name="fee_percent" class="form-control" value="{{ old('fee_percent', isset($incomeSource) ? $incomeSource->fee_percent : '') }}" step="0.01">

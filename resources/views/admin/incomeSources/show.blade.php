@@ -31,7 +31,15 @@
                             {{ trans('cruds.incomeSource.fields.fee_percent') }}
                         </th>
                         <td>
-                            {{ $incomeSource->fee_percent }}
+                            {{ $incomeSource->fee_percent }} Tabung
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Penganteran
+                        </th>
+                        <td>
+                            {{ $incomeSource->penganteran }}x Seminggu
                         </td>
                     </tr>
                 </tbody>

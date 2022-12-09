@@ -40,7 +40,7 @@
                 <select name="income_source_id" id="qty" class="form-control select2" required>
                     <option value="">Please select</option>
                     @foreach($income_sources1 as $id => $income_source)
-                    <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}">{{$income_source->name}}</option>
+                    <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}" data-jadwal="{{ $income_source->penganteran }}">{{$income_source->name}}</option>
                     @endforeach
                 </select>
                 <br>
@@ -165,8 +165,10 @@
         $('#text').hide();
 
         const qty = $('#qty option:selected').data('price');
+        const jadwal = $('#qty option:selected').data('jadwal');
         const totalDiscount = (qty * 15000);
-        $('[name=tabung').val(qty + ' Tabung');
+        const jml = (qty / jadwal);        
+        $('[name=tabung').val(jml + ' Tabung');
         $('[name=amount]').val(totalDiscount);
 
     });

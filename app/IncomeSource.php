@@ -23,6 +23,7 @@ class IncomeSource extends Model
         'updated_at',
         'deleted_at',
         'fee_percent',
+        'penganteran',
     ];
 
     public function transactions()
