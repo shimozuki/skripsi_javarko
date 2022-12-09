@@ -22,12 +22,10 @@
                     {{ trans('cruds.project.fields.name_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('client_id') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('client_id') ? 'has-error' : '' }}" hidden>
                 <label for="client">{{ trans('cruds.project.fields.client') }}*</label>
-                <select name="client_id" id="client" class="form-control select2" required>
-                    @foreach($clients as $id => $client)
-                        <option value="{{ $id }}" {{ (isset($project) && $project->client ? $project->client->id : old('client_id')) == $id ? 'selected' : '' }}>{{ $client }}</option>
-                    @endforeach
+                <select name="client_id" id="client" class="form-control select2">
+                        <option value="1">test</option>
                 </select>
                 @if($errors->has('client_id'))
                     <p class="help-block">
