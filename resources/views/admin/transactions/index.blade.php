@@ -6,7 +6,6 @@
         <a class="btn btn-success" href="{{ route("admin.transactions.create") }}">
             {{ trans('global.add') }} {{ trans('cruds.transaction.title_singular') }} 
         </a>
-        Rp. 15.000/tabung
     </div>
 </div>
 @endcan

@@ -42,12 +42,15 @@ class ClientReportController extends Controller
                         'expenses' => 0,
                         'fees'     => 0,
                         'total'    => 0,
+                        'sisa'     => 0,
+                        'penjualan' => 0,
                     ];
                 }
 
                 $income   = 0;
                 $expenses = 0;
                 $fees     = 0;
+                $penjualan = 0;
 
                 if ($row->amount > 0) {
                     $income += $row->amount;
@@ -58,27 +61,32 @@ class ClientReportController extends Controller
                 if (!is_null($row->income_source->fee_percent)) {
                     $fees = $row->amount * ($row->income_source->fee_percent / 100);
                 }
-
+                $projectse = Project::all();
+                foreach ($projectse as $key => $value) {
+                    $pembelian = $value->budget;
+                }
+                $tabung = $row->income_source->fee_percent;
                 $total = $income + $expenses - $fees;
                 $entries[$date][$currency]['income'] += $income;
                 $entries[$date][$currency]['expenses'] += $expenses;
                 $entries[$date][$currency]['fees'] += $fees;
                 $entries[$date][$currency]['total'] += $total;
+                $entries[$date][$currency]['sisa'] = $pembelian - $tabung;
+                $entries[$date][$currency]['penjualan'] = $tabung;
+                
             }
         }
 
         $projects = Project::pluck('name', 'id')->prepend('--- ' . trans('cruds.clientReport.reports.allProjects') . ' ---', '');
-
         if ($request->has('project')) {
             $currentProject = $request->get('project');
         } else {
             $currentProject = '';
         }
-
         return view('admin.clientReports.index', compact(
             'entries',
             'projects',
-            'currentProject'
+            'currentProject',
         ));
     }
 }

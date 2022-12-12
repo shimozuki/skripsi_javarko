@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.transaction.title_singular') }} Rp. 15.000/tabung
+        Harga perunit Rp. 15.000/tabung
     </div>
 
     <div class="card-body">
@@ -39,8 +39,8 @@
                 <label for="income_source" id="agen"></label>
                 <select name="income_source_id" id="qty" class="form-control select2" required>
                     <option value="">Please select</option>
-                    @foreach($income_sources1 as $id => $income_source)
-                    <option value="{{ $income_source->id }}" data-price="{{ $income_source->fee_percent }}" data-jadwal="{{ $income_source->penganteran }}">{{$income_source->name}}</option>
+                    @foreach($address as $id => $income_source)
+                    <option value="{{ $income_source->id }}" data-adress="{{ $income_source->company }}"  data-price="{{ $income_source->fee_percent }}" data-jadwal="{{ $income_source->penganteran }}">{{$income_source->name}}</option>
                     @endforeach
                 </select>
                 <br>
@@ -103,7 +103,7 @@
                 <label for="name">{{ trans('cruds.transaction.fields.name') }}</label>
                 <select name="name" id="name" class="form-control select2" required>
                     @foreach($name as $id => $row)
-                    <option value="{{ $id }}">{{ $id }} ({{ $row }})</option>
+                    <option value="{{ $id }}" id=""></option>
                     @endforeach
                 </select>
                 @if($errors->has('name'))
@@ -165,6 +165,7 @@
         $('#text').hide();
 
         const qty = $('#qty option:selected').data('price');
+        const address = $('#qty option:selected').data('address');
         const jadwal = $('#qty option:selected').data('jadwal');
         const totalDiscount = (qty * 15000);
         const jml = (qty / jadwal);        

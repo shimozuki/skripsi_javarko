@@ -33,7 +33,7 @@
                         <th>{{ trans('cruds.clientReport.reports.income') }}</th>
                         <th>{{ trans('cruds.clientReport.reports.expenses') }}</th>
                         <th>{{ trans('cruds.clientReport.reports.fees') }}</th>
-                        <th>{{ trans('cruds.clientReport.reports.total') }}</th>
+                        <!-- <th>{{ trans('cruds.clientReport.reports.total') }}</th> -->
                     </tr>
                 </thead>
 
@@ -42,10 +42,10 @@
                         @foreach($info as $currency => $row)
                             <tr>
                                 <td>{{ $date }}</td>
-                                <td> @currency($row['income']) {{ $currency }}</td>
-                                <td> {{ number_format($row['expenses'],2) }} {{ $currency }}</td>
-                                <td> @currency($row['fees'] ) {{ $currency }}</td>
-                                <td> @currency($row['total']) {{ $currency }}</td>
+                                <td> @currency($row['income'])</td>
+                                <td> {{ $row['penjualan'] }} Tabung</td>
+                                <td> {{ $row['sisa'] }} Tabung</td>
+                                <!-- <td> @currency($row['total']) {{ $currency }}</td> -->
                             </tr>
                             <?php $date = ''; ?>
                         @endforeach

@@ -38,10 +38,11 @@ class TransactionController extends Controller
 
         $income_sources = IncomeSource::all()->pluck('fee_percent', 'id')->prepend(trans('global.pleaseSelect'), '');
         $income_sources1 = IncomeSource::all();
+        $address = Project::join('client', 'projects.id', '=', 'client.website_id')->get();
         $name = Client::pluck('company','country')->prepend(trans('global.pleaseSelect'), '');
         $currencies = Currency::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies', 'name'));
+        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies', 'name', 'address'));
     }
 
     public function store(StoreTransactionRequest $request)
