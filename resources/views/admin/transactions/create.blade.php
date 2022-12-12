@@ -39,7 +39,7 @@
                 <label for="income_source" id="agen"></label>
                 <select name="income_source_id" id="qty" class="form-control select2" required>
                     <option value="">Please select</option>
-                    @foreach($address as $id => $income_source)
+                    @foreach($income_sources1 as $id => $income_source)
                     <option value="{{ $income_source->id }}" data-adress="{{ $income_source->company }}"  data-price="{{ $income_source->fee_percent }}" data-jadwal="{{ $income_source->penganteran }}">{{$income_source->name}}</option>
                     @endforeach
                 </select>
