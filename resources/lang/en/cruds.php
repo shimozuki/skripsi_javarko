@@ -169,7 +169,7 @@ return [
             'first_name_helper' => '',
             'last_name'         => 'Last name',
             'last_name_helper'  => '',
-            'company'           => 'Company',
+            'company'           => 'Agen',
             'company_helper'    => '',
             // 'email'             => 'Email',
             'email_helper'      => '',

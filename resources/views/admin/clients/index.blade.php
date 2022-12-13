@@ -28,9 +28,9 @@
                         <th>
                             {{ trans('cruds.client.fields.first_name') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.client.fields.last_name') }}
-                        </th>
+                        </th> -->
                         <th>
                             {{ trans('cruds.client.fields.company') }}
                         </th>
@@ -67,11 +67,11 @@
                                 {{ $client->id ?? '' }}
                             </td>
                             <td>
-                                {{ $client->first_name ?? '' }}
+                                {{ $client->first_name ?? '' }} {{ $client->last_name ?? '' }}
                             </td>
-                            <td>
+                            <!-- <td>
                                 {{ $client->last_name ?? '' }}
-                            </td>
+                            </td> -->
                             <td>
                                 {{ $client->company ?? '' }}
                             </td>
