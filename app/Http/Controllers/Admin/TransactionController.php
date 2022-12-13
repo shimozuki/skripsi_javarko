@@ -42,15 +42,20 @@ class TransactionController extends Controller
         $name = Client::pluck('company','country')->prepend(trans('global.pleaseSelect'), '');
         $currencies = Currency::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies', 'name', 'address'));
+        return view('admin.transactions.create', compact('projects', 'transaction_types', 'income_sources', 'income_sources1',  'currencies', 'name'));
     }
 
     public function store(StoreTransactionRequest $request)
     {
+        if ($request->bukti_tf == null) {
+            $transaction = Transaction::create($request->all());
+        }else {
             $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->bukti_tf->extension());
             $transaction = Transaction::create(['bukti_tf' => $filename, 'amount' => $request->amount, 'transaction_date' => $request->transaction_date, 'name' => $request->name, 'description' => $request->description,
                 'project_id' => $request->project_id, 'transaction_type_id' => $request->transaction_type_id, 'income_source_id' => $request->income_source_id, 'currency_id' => $request->currency_id]);
             $request->bukti_tf->move('storage/bukti_tf', $filename);
+        }
+            
             return redirect()->route('admin.transactions.index');
     }
 

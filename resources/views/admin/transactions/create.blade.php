@@ -103,7 +103,7 @@
                 <label for="name">{{ trans('cruds.transaction.fields.name') }}</label>
                 <select name="name" id="name" class="form-control select2" required>
                     @foreach($name as $id => $row)
-                    <option value="{{ $id }}" id=""></option>
+                    <option value="{{ $id }}" id="">{{$row}} ({{$id}})</option>
                     @endforeach
                 </select>
                 @if($errors->has('name'))
