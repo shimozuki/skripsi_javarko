@@ -40,7 +40,7 @@
                 <select name="income_source_id" id="qty" class="form-control select2" required>
                     <option value="">Please select</option>
                     @foreach($income_sources1 as $id => $income_source)
-                    <option value="{{ $income_source->id }}" data-adress="{{ $income_source->company }}"  data-price="{{ $income_source->fee_percent }}" data-jadwal="{{ $income_source->penganteran }}">{{$income_source->name}}</option>
+                    <option value="{{ $income_source->id }}" data-adress="{{ $income_source->alamt }}"  data-price="{{ $income_source->fee_percent }}" data-jadwal="{{ $income_source->penganteran }}">{{$income_source->name}}</option>
                     @endforeach
                 </select>
                 <br>
@@ -101,11 +101,7 @@
             </div>
             <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.transaction.fields.name') }}</label>
-                <select name="name" id="name" class="form-control select2" required>
-                    @foreach($name as $id => $row)
-                    <option value="{{ $id }}" id="">{{$row}} ({{$id}})</option>
-                    @endforeach
-                </select>
+                <input type="text" id="addres" name="alamat" class="form-control date" readonly>
                 @if($errors->has('name'))
                 <p class="help-block">
                     {{ $errors->first('name') }}
@@ -167,10 +163,12 @@
         const qty = $('#qty option:selected').data('price');
         const address = $('#qty option:selected').data('address');
         const jadwal = $('#qty option:selected').data('jadwal');
+        const alamat = $('#qty option:selected').data('adress');
         const totalDiscount = (qty * 15000);
         const jml = (qty / jadwal);        
         $('[name=tabung').val(jml + ' Tabung');
         $('[name=amount]').val(totalDiscount);
+        $('[name=alamat]').val(alamat);
 
     });
 </script>

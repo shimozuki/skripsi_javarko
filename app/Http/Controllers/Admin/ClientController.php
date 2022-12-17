@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Client;
 use App\ClientStatus;
 use App\Project;
+use App\IncomeSource;
+use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyClientRequest;
 use App\Http\Requests\StoreClientRequest;
@@ -12,6 +14,7 @@ use App\Http\Requests\UpdateClientRequest;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -35,9 +38,44 @@ class ClientController extends Controller
 
     public function store(StoreClientRequest $request)
     {
-        $client = Client::create($request->all());
-
-        return redirect()->route('admin.clients.index');
+        $dataclient = [
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'skype' => '-',
+            'company' => $request->company,
+            'website_id' => $request->website_id,
+            'country' => $request->country,
+            'last_name' => $request->last_name,
+            'status_id' => $request->status_id,
+            'first_name' => $request->first_name,
+        ];
+        $dataincome = [
+            'name' => $request->company,
+            'fee_percent' => 0,
+            'penganteran' => 1,
+            'alamt' => $request->country,
+        ];
+        $datauser = [
+            'name' => $request->first_name . ' ' . $request->last_name,
+            'email' => $request->phone.'@gmail.com',
+            'password' => $request->phone,
+        ]; 
+        $roles = 3;
+        DB::beginTransaction();
+        try {
+            $client = Client::create($request->all());
+            $IncomeSource = DB::table('income_sources')->insert($dataincome);
+            $user = User::create($datauser);
+            $user->roles()->sync($roles);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $errormsg = 'Database error!! ' . $e->getMessage();
+        }
+        return redirect()->route('admin.clients.index');   
+        // echo "<pre>";
+        // print_r($IncomeSource);
+        // echo "</pre>";
     }
 
     public function edit(Client $client)
