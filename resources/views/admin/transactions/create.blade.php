@@ -101,7 +101,7 @@
             </div>
             <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.transaction.fields.name') }}</label>
-                <input type="text" id="addres" name="alamat" class="form-control date" readonly>
+                <input type="text" id="addres" name="name" class="form-control date" readonly>
                 @if($errors->has('name'))
                 <p class="help-block">
                     {{ $errors->first('name') }}
@@ -168,7 +168,7 @@
         const jml = (qty / jadwal);        
         $('[name=tabung').val(jml + ' Tabung');
         $('[name=amount]').val(totalDiscount);
-        $('[name=alamat]').val(alamat);
+        $('[name=alamat]').val(name);
 
     });
 </script>
