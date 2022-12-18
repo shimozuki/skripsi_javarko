@@ -168,7 +168,7 @@
         const jml = (qty / jadwal);        
         $('[name=tabung').val(jml + ' Tabung');
         $('[name=amount]').val(totalDiscount);
-        $('[name=alamat]').val(name);
+        $('[name=name]').val(alamat);
 
     });
 </script>
