@@ -21,9 +21,9 @@
                     {{ trans('cruds.project.fields.name_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('client_id') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('client_id') ? 'has-error' : '' }}" hidden>
                 <label for="client" hidden>*</label>
-                <select name="client_id" id="client" class="form-control select2" required>
+                <select name="client_id" id="client" class="form-control select2">
                         <option value="{{ 1 }}">test</option>
                 </select>
                 @if($errors->has('client_id'))

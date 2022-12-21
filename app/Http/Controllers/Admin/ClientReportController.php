@@ -65,13 +65,19 @@ class ClientReportController extends Controller
                 foreach ($projectse as $key => $value) {
                     $pembelian = $value->budget;
                 }
+               
                 $tabung = $row->income_source->fee_percent;
+                if ($tabung == 0) {
+                    $tb = $pembelian;
+                }else{
+                    $tb = $pembelian - $tabung;
+                }
                 $total = $income + $expenses - $fees;
                 $entries[$date][$currency]['income'] += $income;
                 $entries[$date][$currency]['expenses'] += $expenses;
                 $entries[$date][$currency]['fees'] += $fees;
                 $entries[$date][$currency]['total'] += $total;
-                $entries[$date][$currency]['sisa'] = $pembelian - $tabung;
+                $entries[$date][$currency]['sisa'] = $tb;
                 $entries[$date][$currency]['penjualan'] = $tabung;
                 
             }
