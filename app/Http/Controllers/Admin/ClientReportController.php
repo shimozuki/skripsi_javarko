@@ -16,6 +16,7 @@ class ClientReportController extends Controller
             ->with('transaction_type')
             ->with('income_source')
             ->with('currency')
+            ->where('deleted_at', NULL)
             ->orderBy('transaction_date', 'desc');
 
         if ($request->has('project')) {
