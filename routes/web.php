@@ -62,4 +62,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Clientreports
     Route::delete('client-reports/destroy', 'ClientReportController@massDestroy')->name('client-reports.massDestroy');
     Route::resource('client-reports', 'ClientReportController');
+    Route::get('coba', 'cobaController@index')->name('coba');
 });

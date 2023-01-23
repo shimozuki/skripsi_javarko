@@ -159,14 +159,13 @@
     $('#qty').on('change', function() {
         $('#upload').hide();
         $('#text').hide();
-
         const qty = $('#qty option:selected').data('price');
         const address = $('#qty option:selected').data('address');
         const jadwal = $('#qty option:selected').data('jadwal');
         const alamat = $('#qty option:selected').data('adress');
         const totalDiscount = (qty * 15000);
         const jml = (qty / jadwal);        
-        $('[name=tabung').val(jml + ' Tabung');
+        $('[name=tabung]').val(jml + ' Tabung');
         $('[name=amount]').val(totalDiscount);
         $('[name=name]').val(alamat);
 

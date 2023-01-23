@@ -60,6 +60,13 @@ class ClientController extends Controller
             'email' => $request->phone.'@gmail.com',
             'password' => $request->phone,
         ]; 
+        $array = [
+            'data_agen' => $dataclient, 
+            'data_jumlah_tabung' => $dataincome, 
+            'data_akun' => $datauser];
+        // echo "<pre>";
+        // print_r($array);
+        // echo "</pre>";
         $roles = 3;
         DB::beginTransaction();
         try {
@@ -73,9 +80,6 @@ class ClientController extends Controller
             $errormsg = 'Database error!! ' . $e->getMessage();
         }
         return redirect()->route('admin.clients.index');   
-        // echo "<pre>";
-        // print_r($IncomeSource);
-        // echo "</pre>";
     }
 
     public function edit(Client $client)

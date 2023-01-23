@@ -53,8 +53,7 @@ class TransactionController extends Controller
             $transaction = Transaction::create(['bukti_tf' => $filename, 'amount' => $request->amount, 'transaction_date' => $request->transaction_date, 'name' => $request->name, 'description' => $request->description,
                 'project_id' => $request->project_id, 'transaction_type_id' => $request->transaction_type_id, 'income_source_id' => $request->income_source_id, 'currency_id' => $request->currency_id]);
             $request->bukti_tf->move('storage/bukti_tf', $filename);
-        }
-            
+        } 
             return redirect()->route('admin.transactions.index');
     }
 
